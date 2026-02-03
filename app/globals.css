@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
+/* Base page setup */
+html, body {
+  height: 100%;
+}
+
+/* Your custom theme variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --facts-bg: 10 10 10;
+  --facts-tint: 20 20 20;
+  --facts-fg: 245 245 245;
+
+  --story-bg: 7 28 18;
+  --story-tint: 10 44 26;
+  --story-fg: 240 253 244;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Typewriter animation */
+@keyframes typewriter-reveal {
+  from { width: 0 }
+  to { width: var(--tw-width) }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes typewriter-caret {
+  0%, 49% { opacity: 1 }
+  50%, 100% { opacity: 0 }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  border-right: 2px solid rgba(255,255,255,0.6);
+  animation:
+    typewriter-reveal var(--tw-duration, 2.2s) steps(var(--tw-steps, 30), end) forwards,
+    typewriter-caret 0.9s step-end infinite;
+}
+
+.typewriter-muted {
+  border-right-color: rgba(255,255,255,0.35);
+}
+
+/* Divider boot pulse */
+@keyframes divider-boot-pulse {
+  0%   { opacity: 0.15; filter: blur(0px); transform: translateX(-50%) scaleY(0.6); }
+  35%  { opacity: 0.9;  filter: blur(0.6px); transform: translateX(-50%) scaleY(1.0); }
+  65%  { opacity: 0.35; filter: blur(0.2px); transform: translateX(-50%) scaleY(1.0); }
+  100% { opacity: 0.15; filter: blur(0px); transform: translateX(-50%) scaleY(1.0); }
+}
+
+.divider-boot {
+  animation: divider-boot-pulse 900ms ease-out 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typewriter { animation: none !important; width: auto !important; border-right: none !important; }
+  .divider-boot { animation: none !important; }
 }

@@ -14,7 +14,13 @@ html, body {
   --story-bg: 7 28 18;
   --story-tint: 10 44 26;
   --story-fg: 240 253 244;
+
+  --ring: 255 255 255;
 }
+
+.font-facts { font-family: var(--font-facts), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+.font-story { font-family: var(--font-story), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
+.font-script { font-family: var(--font-script), ui-serif, Georgia, serif; }
 
 /* Typewriter animation */
 @keyframes typewriter-reveal {

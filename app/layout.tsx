@@ -1,6 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
+import { JetBrains_Mono, Fraunces, Dancing_Script } from "next/font/google";
+
+const factsFont = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-facts',
+  display: 'swap',
+});
+
+const storyFont = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-story',
+  display: 'swap',
+});
+
+const accentScript = Dancing_Script({
+  subsets: ['latin'],
+  variable: '--font-script',
+  display: 'swap',
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${factsFont.variable} ${storyFont.variable} ${accentScript.variable}`}
       >
         {children}
       </body>

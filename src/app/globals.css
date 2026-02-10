@@ -1,3 +1,4 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
 /* Base page setup */
@@ -5,24 +6,24 @@ html, body {
   height: 100%;
 }
 
-/* Your custom theme variables */
+/* Custom theme variables */
 :root {
-  --facts-bg: 10 10 10;
-  --facts-tint: 20 20 20;
+  --facts-bg: 10 10 10;     /* near-black */
+  --facts-tint: 20 20 20;   /* charcoal */
   --facts-fg: 245 245 245;
 
-  --story-bg: 7 28 18;
-  --story-tint: 10 44 26;
+  --story-bg: 7 28 18;      /* deep forest */
+  --story-tint: 10 44 26;   /* forest tint */
   --story-fg: 240 253 244;
-
-  --ring: 255 255 255;
 }
 
-.font-facts { font-family: var(--font-facts), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
-.font-story { font-family: var(--font-story), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif; }
-.font-script { font-family: var(--font-script), ui-serif, Georgia, serif; }
+/* =========================
+   Typewriter effect (v2)
+   - No caret by default
+   - Enable caret per line with .typewriter-caret
+   - Prevent overflow beyond parent container
+   ========================= */
 
-/* Typewriter animation */
 @keyframes typewriter-reveal {
   from { width: 0 }
   to { width: var(--tw-width) }
@@ -33,22 +34,34 @@ html, body {
   50%, 100% { opacity: 0 }
 }
 
+/* Base typewriter: reveal only */
 .typewriter {
-  display: inline-block;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
+
+  /* keep inside parent */
+  max-width: 100%;
+
   width: 0;
-  border-right: 2px solid rgba(255,255,255,0.6);
+  border-right: 0;
+  animation: typewriter-reveal var(--tw-duration, 2.2s)
+    steps(var(--tw-steps, 30), end) forwards;
+}
+
+/* Add a blinking caret only when desired */
+.typewriter-caret {
+  border-right: 2px solid rgba(255, 255, 255, 0.6);
   animation:
     typewriter-reveal var(--tw-duration, 2.2s) steps(var(--tw-steps, 30), end) forwards,
     typewriter-caret 0.9s step-end infinite;
 }
 
-.typewriter-muted {
-  border-right-color: rgba(255,255,255,0.35);
+.typewriter-muted.typewriter-caret {
+  border-right-color: rgba(255, 255, 255, 0.35);
 }
 
-/* Divider boot pulse */
+/* Divider boot pulse (runs once on load) */
 @keyframes divider-boot-pulse {
   0%   { opacity: 0.15; filter: blur(0px); transform: translateX(-50%) scaleY(0.6); }
   35%  { opacity: 0.9;  filter: blur(0.6px); transform: translateX(-50%) scaleY(1.0); }
@@ -60,7 +73,17 @@ html, body {
   animation: divider-boot-pulse 900ms ease-out 1;
 }
 
+/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .typewriter { animation: none !important; width: auto !important; border-right: none !important; }
-  .divider-boot { animation: none !important; }
+  .typewriter,
+  .typewriter-caret {
+    width: auto !important;
+    max-width: 100% !important;
+    border-right: none !important;
+    animation: none !important;
+  }
+
+  .divider-boot {
+    animation: none !important;
+  }
 }

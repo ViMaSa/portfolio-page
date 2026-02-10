@@ -1,39 +1,119 @@
+// src/app/page.tsx
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import Typewriter from '@/components/Typewriter';
+
+type HoverSide = 'facts' | 'story' | null;
 
 export default function HomePage() {
+  const [hovered, setHovered] = useState<HoverSide>(null);
+  const [boot, setBoot] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setBoot(false), 950);
+    return () => clearTimeout(t);
+  }, []);
+
+  const dimFacts = hovered === 'story';
+  const dimStory = hovered === 'facts';
+
   return (
-    <main className="min-h-screen">
+    // ✅ Add a dark backing color so any tiny scale gaps are NOT white
+    <main className="relative min-h-screen overflow-hidden bg-black">
+      {/* Desktop vertical divider */}
+      <div
+        className={[
+          'pointer-events-none absolute left-1/2 top-0 hidden h-full -translate-x-1/2 md:block',
+          'w-px transition-all duration-500', // ✅ thinner divider (w-px instead of 2px)
+          boot ? 'divider-boot' : '',
+          hovered === 'facts'
+            ? 'bg-gradient-to-b from-transparent via-white/15 to-transparent' // ✅ reduced brightness
+            : hovered === 'story'
+            ? 'bg-gradient-to-b from-transparent via-emerald-300/12 to-transparent' // ✅ reduced brightness
+            : 'bg-white/10',
+        ].join(' ')}
+      />
+
+      {/* Mobile horizontal divider */}
+      <div
+        className={[
+          'pointer-events-none absolute left-0 top-1/2 block w-full -translate-y-1/2 md:hidden',
+          'h-px transition-all duration-500', // ✅ thinner divider
+          boot ? 'divider-boot' : '',
+          hovered === 'facts'
+            ? 'bg-gradient-to-r from-transparent via-white/12 to-transparent'
+            : hovered === 'story'
+            ? 'bg-gradient-to-r from-transparent via-emerald-300/10 to-transparent'
+            : 'bg-white/10',
+        ].join(' ')}
+      />
+
       <div className="grid min-h-screen grid-cols-1 md:grid-cols-2">
-        {/* LEFT: FACTS */}
+        {/* FACTS */}
         <Link
           href="/facts"
-          className="group relative flex items-center justify-center overflow-hidden"
           aria-label="Go to Facts Mode"
+          onMouseEnter={() => setHovered('facts')}
+          onMouseLeave={() => setHovered(null)}
+          onFocus={() => setHovered('facts')}
+          onBlur={() => setHovered(null)}
+          className={[
+            'group relative flex min-h-[50vh] cursor-pointer items-center justify-center overflow-hidden',
+            'transition-[transform,filter] duration-400 ease-out md:min-h-screen',
+            'focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 outline-none',
+            dimFacts
+              ? 'blur-[0.75px] scale-[0.995]'
+              : 'blur-0 scale-100 hover:scale-[1.015]',
+          ].join(' ')}
         >
           <div className="absolute inset-0 bg-[rgb(var(--facts-bg))]" />
-          <div className="absolute inset-0 opacity-70 transition group-hover:opacity-100 bg-gradient-to-br from-[rgb(var(--facts-tint))] to-[rgb(var(--facts-bg))]" />
-          <div className="absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
-            <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
-            <div className="absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[rgb(var(--facts-tint))] to-[rgb(var(--facts-bg))] opacity-70 transition group-hover:opacity-100" />
 
-          <div className="relative mx-auto w-full max-w-xl px-8 py-16">
+          <div className="relative mx-auto w-full max-w-xl px-6 py-10 md:px-8 md:py-16">
             <p className="font-facts text-xs tracking-widest text-white/60">FACTS MODE</p>
-            <h1 className="mt-3 font-facts text-4xl font-semibold tracking-tight text-[rgb(var(--facts-fg))]">
+            <h1 className="mt-3 font-facts text-3xl font-semibold tracking-tight text-[rgb(var(--facts-fg))] md:text-4xl">
               Victor Sarmiento
             </h1>
             <p className="mt-3 max-w-md font-facts text-sm leading-6 text-white/75">
               Full-Stack Developer · Systems-Focused Engineer
             </p>
 
-            <div className="mt-10 rounded-2xl border border-white/10 bg-black/30 p-5 font-facts text-sm text-white/70">
-              <p className="text-white/55">$ quick_scan --resume</p>
-              <p className="mt-2">
-                • Silversheet (Software Engineer): Rails · React · PostgreSQL · AWS
-              </p>
-              <p>• H.O.S.T. System: APIs · Auth · Workflow modeling</p>
-              <p>• MGM Workforce: operational constraints &amp; scheduling systems</p>
-              <p className="mt-3 text-white/55">
+            {/* Terminal */}
+            <div className="mt-10 overflow-hidden rounded-2xl border border-white/10 bg-black/30 p-5 font-facts text-sm text-white/70">
+              <div className="text-white/55">
+                <Typewriter
+                  text="$ quick_scan --resume"
+                  durationMs={1200}
+                  delayMs={150}
+                  className="typewriter-muted"
+                />
+              </div>
+
+              <div className="mt-3 space-y-2">
+                <Typewriter
+                  text="• Silversheet (Software Engineer): Rails · React · PostgreSQL · AWS"
+                  durationMs={2400}
+                  delayMs={750}
+                  className="typewriter-muted"
+                />
+                <Typewriter
+                  text="• H.O.S.T. System: APIs · Auth · Workflow modeling"
+                  durationMs={1900}
+                  delayMs={1400}
+                  className="typewriter-muted"
+                />
+                <Typewriter
+                  text="• MGM Workforce: operational constraints & scheduling systems"
+                  durationMs={2100}
+                  delayMs={2000}
+                  className="typewriter-muted"
+                  caret
+                />
+              </div>
+
+              <p className="mt-4 text-white/55">
                 → Click for the fast, recruiter-friendly view
               </p>
             </div>
@@ -44,22 +124,29 @@ export default function HomePage() {
           </div>
         </Link>
 
-        {/* RIGHT: STORY */}
+        {/* STORY */}
         <Link
           href="/story"
-          className="group relative flex items-center justify-center overflow-hidden"
           aria-label="Go to Story Mode"
+          onMouseEnter={() => setHovered('story')}
+          onMouseLeave={() => setHovered(null)}
+          onFocus={() => setHovered('story')}
+          onBlur={() => setHovered(null)}
+          className={[
+            'group relative flex min-h-[50vh] cursor-pointer items-center justify-center overflow-hidden',
+            'transition-[transform,filter] duration-400 ease-out md:min-h-screen',
+            'focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 outline-none',
+            dimStory
+              ? 'blur-[0.75px] scale-[0.995]'
+              : 'blur-0 scale-100 hover:scale-[1.015]',
+          ].join(' ')}
         >
           <div className="absolute inset-0 bg-[rgb(var(--story-bg))]" />
-          <div className="absolute inset-0 opacity-70 transition group-hover:opacity-100 bg-gradient-to-br from-[rgb(var(--story-tint))] to-[rgb(var(--story-bg))]" />
-          <div className="absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100">
-            <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-emerald-200/10 blur-3xl" />
-            <div className="absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-emerald-200/10 blur-3xl" />
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[rgb(var(--story-tint))] to-[rgb(var(--story-bg))] opacity-70 transition group-hover:opacity-100" />
 
-          <div className="relative mx-auto w-full max-w-xl px-8 py-16">
+          <div className="relative mx-auto w-full max-w-xl px-6 py-10 md:px-8 md:py-16">
             <p className="font-story text-xs tracking-widest text-emerald-50/70">STORY MODE</p>
-            <h2 className="mt-3 font-story text-4xl font-semibold tracking-tight text-[rgb(var(--story-fg))]">
+            <h2 className="mt-3 font-story text-3xl font-semibold tracking-tight text-[rgb(var(--story-fg))] md:text-4xl">
               My Engineering Story
             </h2>
             <p className="mt-3 max-w-md font-story text-base leading-7 text-emerald-50/80">

@@ -1,4 +1,5 @@
-import { Project } from "../data/projects";
+// src/components/ProjectCard.tsx
+import type { Project } from '@/data/project';
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -20,12 +21,22 @@ export default function ProjectCard({ project }: { project: Project }) {
         {(project.links?.repo || project.links?.demo) && (
           <div className="mt-5 flex gap-4 text-sm">
             {project.links?.demo && (
-              <a className="underline underline-offset-4 hover:text-white" href={project.links.demo} target="_blank" rel="noreferrer">
-                Live Demo
+              <a
+                className="underline underline-offset-4 hover:text-white"
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Live Site
               </a>
             )}
             {project.links?.repo && (
-              <a className="underline underline-offset-4 hover:text-white" href={project.links.repo} target="_blank" rel="noreferrer">
+              <a
+                className="underline underline-offset-4 hover:text-white"
+                href={project.links.repo}
+                target="_blank"
+                rel="noreferrer"
+              >
                 GitHub
               </a>
             )}
@@ -33,5 +44,5 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
     </div>
-  )
+  );
 }

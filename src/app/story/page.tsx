@@ -1,3 +1,4 @@
+// src/app/story/page.tsx
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -8,72 +9,81 @@ export default function StoryPage() {
 
       <div className="mx-auto w-full max-w-3xl px-6 py-12">
         <header className="space-y-4">
-          <p className="text-emerald-50/70 font-script text-2xl">My Engineering Story</p>
+          <p className="text-emerald-50/75 font-script text-2xl">My Engineering Story</p>
           <h1 className="text-4xl font-semibold tracking-tight">
-            I’m interested in building systems that work.
+            I like problems where structure matters.
           </h1>
-          <p className="text-emerald-50/75 leading-7">
-            This is the narrative version of my background — what I learned in production, how operations shaped my mindset,
-            and why I’m drawn to backend architecture and workflow-driven software.
+          <p className="text-emerald-50/80 leading-7">
+            I’m web-focused, but I’m most motivated by the backend logic and system behavior behind the UI —
+            performance, constraints, and workflows that stay reliable over time.
           </p>
         </header>
 
         <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
-          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">THE START</h2>
+          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">THE THROUGHLINE</h2>
           <p>
-            My path into software engineering has always been tied to real-world systems, not just classroom exercises.
-            I’m drawn to the structure behind complex operations — the rules, constraints, and workflows that make big environments function.
+            Across research, production software, and operations work, I’ve kept ending up in the same categories of problems:
+            turning messy inputs into consistent outputs, modeling constraints explicitly, and building systems that behave predictably.
+          </p>
+        </section>
+
+        <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
+          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">HIGH-FREQUENCY DATA WORK — FOUNDATIONS</h2>
+          <p>
+            In a UNLV biomechanics lab setting, I contributed to a high-frequency (1000 Hz) data processing workflow.
+            My work included numerical integration to derive velocity and position from acceleration signals, and handling noise/smoothing
+            to stabilize computed series.
+          </p>
+          <p className="text-emerald-50/70">
+            The important part for me wasn’t the domain — it was learning how real data behaves, and how computation choices impact correctness and performance.
           </p>
         </section>
 
         <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
           <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">PRODUCTION ENGINEERING — SILVERSHEET</h2>
           <p>
-            At Silversheet, I worked as a Software Engineer on a production healthcare workforce platform used by hospitals.
-            That’s where I learned what production software really means: reliability, debugging, and making changes that won’t break the system tomorrow.
+            At Silversheet, I worked on production systems supporting healthcare enrollment workflows. I contributed to automation that
+            converted PDFs into structured mappings and stored them in AWS — turning a multi-day manual process into something that ran in hours.
           </p>
           <p>
-            I worked across Ruby on Rails, React, PostgreSQL, and AWS, and wrote 50+ root cause analyses to understand failures at the system level — not just fix symptoms.
+            That’s where I learned production discipline: feature flags, debugging launch blockers, monitoring incidents,
+            and writing RCAs so the same class of failure doesn’t repeat.
           </p>
         </section>
 
         <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
-          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">SYSTEMS THINKING — MGM WORKFORCE</h2>
+          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">CONSTRAINTS MINDSET — MGM</h2>
           <p>
-            I also work in Workforce Management at MGM Resorts, operating inside large-scale scheduling systems where constraints and trade-offs are constant.
-            That environment strengthened my systems thinking: dependencies, edge cases, and decisions under real operational pressure.
+            Working in workforce management in a 24/7 environment strengthened my systems thinking. Constraints, dependencies,
+            and edge cases aren’t theoretical — they’re the difference between a system that works and one that breaks under pressure.
           </p>
         </section>
 
         <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
-          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">WHY I BUILD</h2>
+          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">SHIPPING NOW — HOME SAVVY DEALS (CONTRACT)</h2>
           <p>
-            I’m most interested in backend architecture, data modeling, APIs, and workflow-driven systems.
-            I like turning messy processes into structured systems that behave predictably over time.
+            I currently contribute to HomeSavvyDeals (Next.js + Supabase deployed on Vercel). My work focuses on ranking logic and search workflows,
+            keeping key logic close to the data layer with Supabase RPC and database views.
           </p>
-        </section>
 
-        <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
-          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">THE PROJECT — H.O.S.T.</h2>
-          <p>
-            To combine production engineering habits with an operations mindset, I built the H.O.S.T. System —
-            a full-stack service ticketing platform modeled around real workflows.
-          </p>
           <div className="rounded-2xl border border-emerald-50/10 bg-black/20 p-6">
-            <p className="font-script text-2xl text-emerald-50/80">
-              “Model the system first — then build the software to support it.”
+            <p className="font-script text-2xl text-emerald-50/85">
+              “Keep the UI thin. Put the logic where it belongs.”
             </p>
-            <p className="mt-3 text-emerald-50/75">
-              Authentication, role-based permissions, workflow state transitions, and relational modeling designed for integrity.
-            </p>
+            <ul className="mt-4 list-disc space-y-2 pl-5 text-emerald-50/80">
+              <li>Weighted ranking logic balancing monetization constraints with recency scoring</li>
+              <li>Supabase RPC + views to encapsulate selection logic and reduce frontend complexity</li>
+              <li>Search intent routing (direct URL vs similarity lookup)</li>
+              <li>In progress: background search execution to reduce perceived latency</li>
+            </ul>
           </div>
         </section>
 
         <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
           <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">WHERE I’M GOING</h2>
           <p>
-            I’m deepening my CS foundations while continuing to build systems. My goal is to grow into a backend/systems-focused
-            engineer building software that supports real operations at scale.
+            I’m leaning into infrastructure-adjacent backend work: systems where performance, correctness, and constraints intersect —
+            search/ranking pipelines, workflow engines, and data-heavy services that make product behavior reliable at scale.
           </p>
         </section>
       </div>

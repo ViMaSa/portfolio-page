@@ -1,34 +1,26 @@
 /* src/app/globals.css */
 @import "tailwindcss";
 
-/* Base page setup */
 html, body {
   height: 100%;
 }
 
-/* Custom theme variables */
+/* Theme vars (RGB triplets) */
 :root {
-  --facts-bg: 10 10 10;     /* near-black */
-  --facts-tint: 20 20 20;   /* charcoal */
+  --facts-bg: 10 10 10;
+  --facts-tint: 20 20 20;
   --facts-fg: 245 245 245;
 
-  --story-bg: 7 28 18;      /* deep forest */
-  --story-tint: 10 44 26;   /* forest tint */
+  --story-bg: 7 28 18;
+  --story-tint: 10 44 26;
   --story-fg: 240 253 244;
 }
 
-/* =========================
-   Typewriter effect (v2)
-   - No caret by default
-   - Enable caret per line with .typewriter-caret
-   - Prevent overflow beyond parent container
-   ========================= */
-
+/* Typewriter */
 @keyframes typewriter-reveal {
   from { width: 0 }
   to { width: var(--tw-width) }
 }
-
 @keyframes typewriter-caret {
   0%, 49% { opacity: 1 }
   50%, 100% { opacity: 0 }
@@ -42,25 +34,22 @@ html, body {
 
   width: 0;
   border-right: 0;
-  animation: typewriter-reveal var(--tw-duration, 2.2s)
+  animation: typewriter-reveal var(--tw-duration, 2200ms)
     steps(var(--tw-steps, 30), end) forwards;
 }
 
 .typewriter-caret {
-  border-right: 2px solid rgba(255, 255, 255, 0.6);
+  border-right: 2px solid rgba(255, 255, 255, 0.45);
   animation:
-    typewriter-reveal var(--tw-duration, 2.2s) steps(var(--tw-steps, 30), end) forwards,
+    typewriter-reveal var(--tw-duration, 2200ms) steps(var(--tw-steps, 30), end) forwards,
     typewriter-caret 0.9s step-end infinite;
 }
 
 .typewriter-muted.typewriter-caret {
-  border-right-color: rgba(255, 255, 255, 0.35);
+  border-right-color: rgba(255, 255, 255, 0.28);
 }
 
-/* =========================
-   Terminal cursor line
-   - Use on a new line under typed text
-   ========================= */
+/* Terminal cursor line */
 @keyframes terminal-blink {
   0%, 49% { opacity: 1 }
   50%, 100% { opacity: 0 }
@@ -71,7 +60,7 @@ html, body {
   animation: terminal-blink 0.9s step-end infinite;
 }
 
-/* Divider boot pulse (runs once on load) */
+/* Divider boot pulse (runs once) */
 @keyframes divider-boot-pulse {
   0%   { opacity: 0.15; transform: translateX(-50%) scaleY(0.6); }
   35%  { opacity: 0.9;  transform: translateX(-50%) scaleY(1.0); }
@@ -83,7 +72,7 @@ html, body {
   animation: divider-boot-pulse 900ms ease-out 1;
 }
 
-/* Respect reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .typewriter,
   .typewriter-caret {

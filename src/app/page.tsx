@@ -20,18 +20,17 @@ export default function HomePage() {
   const dimStory = hovered === 'facts';
 
   return (
-    // ✅ Add a dark backing color so any tiny scale gaps are NOT white
     <main className="relative min-h-screen overflow-hidden bg-black">
       {/* Desktop vertical divider */}
       <div
         className={[
           'pointer-events-none absolute left-1/2 top-0 hidden h-full -translate-x-1/2 md:block',
-          'w-px transition-all duration-500', // ✅ thinner divider (w-px instead of 2px)
+          'w-px transition-all duration-500',
           boot ? 'divider-boot' : '',
           hovered === 'facts'
-            ? 'bg-gradient-to-b from-transparent via-white/15 to-transparent' // ✅ reduced brightness
+            ? 'bg-gradient-to-b from-transparent via-white/15 to-transparent'
             : hovered === 'story'
-            ? 'bg-gradient-to-b from-transparent via-emerald-300/12 to-transparent' // ✅ reduced brightness
+            ? 'bg-gradient-to-b from-transparent via-emerald-300/12 to-transparent'
             : 'bg-white/10',
         ].join(' ')}
       />
@@ -40,7 +39,7 @@ export default function HomePage() {
       <div
         className={[
           'pointer-events-none absolute left-0 top-1/2 block w-full -translate-y-1/2 md:hidden',
-          'h-px transition-all duration-500', // ✅ thinner divider
+          'h-px transition-all duration-500',
           boot ? 'divider-boot' : '',
           hovered === 'facts'
             ? 'bg-gradient-to-r from-transparent via-white/12 to-transparent'
@@ -109,8 +108,18 @@ export default function HomePage() {
                   durationMs={2100}
                   delayMs={2000}
                   className="typewriter-muted"
-                  caret
                 />
+
+                {/* New line cursor (starts after the last line finishes typing) */}
+                <div className="leading-6 text-white/55">
+                  <span
+                    className="terminal-cursor"
+                    style={{ animationDelay: '4100ms' }} // 2000ms delay + 2100ms duration
+                    aria-hidden="true"
+                  >
+                    █
+                  </span>
+                </div>
               </div>
 
               <p className="mt-4 text-white/55">

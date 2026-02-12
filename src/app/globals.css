@@ -34,13 +34,10 @@ html, body {
   50%, 100% { opacity: 0 }
 }
 
-/* Base typewriter: reveal only */
 .typewriter {
   display: block;
   white-space: nowrap;
   overflow: hidden;
-
-  /* keep inside parent */
   max-width: 100%;
 
   width: 0;
@@ -49,7 +46,6 @@ html, body {
     steps(var(--tw-steps, 30), end) forwards;
 }
 
-/* Add a blinking caret only when desired */
 .typewriter-caret {
   border-right: 2px solid rgba(255, 255, 255, 0.6);
   animation:
@@ -61,12 +57,26 @@ html, body {
   border-right-color: rgba(255, 255, 255, 0.35);
 }
 
+/* =========================
+   Terminal cursor line
+   - Use on a new line under typed text
+   ========================= */
+@keyframes terminal-blink {
+  0%, 49% { opacity: 1 }
+  50%, 100% { opacity: 0 }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  animation: terminal-blink 0.9s step-end infinite;
+}
+
 /* Divider boot pulse (runs once on load) */
 @keyframes divider-boot-pulse {
-  0%   { opacity: 0.15; filter: blur(0px); transform: translateX(-50%) scaleY(0.6); }
-  35%  { opacity: 0.9;  filter: blur(0.6px); transform: translateX(-50%) scaleY(1.0); }
-  65%  { opacity: 0.35; filter: blur(0.2px); transform: translateX(-50%) scaleY(1.0); }
-  100% { opacity: 0.15; filter: blur(0px); transform: translateX(-50%) scaleY(1.0); }
+  0%   { opacity: 0.15; transform: translateX(-50%) scaleY(0.6); }
+  35%  { opacity: 0.9;  transform: translateX(-50%) scaleY(1.0); }
+  65%  { opacity: 0.35; transform: translateX(-50%) scaleY(1.0); }
+  100% { opacity: 0.15; transform: translateX(-50%) scaleY(1.0); }
 }
 
 .divider-boot {
@@ -80,6 +90,10 @@ html, body {
     width: auto !important;
     max-width: 100% !important;
     border-right: none !important;
+    animation: none !important;
+  }
+
+  .terminal-cursor {
     animation: none !important;
   }
 

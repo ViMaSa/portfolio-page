@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import { JetBrains_Mono, Fraunces, Dancing_Script } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 
 const factsFont = JetBrains_Mono({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${factsFont.variable} ${storyFont.variable} ${accentScript.variable}`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

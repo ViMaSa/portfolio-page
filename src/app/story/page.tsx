@@ -106,7 +106,7 @@ export default function StoryPage() {
           <figure className="rounded-2xl border border-emerald-50/10 bg-black/20 p-4">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
               <Image
-                src="/images/silversheet_company_outing_2019.jpg"
+                src="/images/silversheet_company_outing_2019.JPG"
                 alt="Silversheet team outing"
                 fill
                 className="object-cover"
@@ -215,7 +215,7 @@ export default function StoryPage() {
           <figure className="rounded-2xl border border-emerald-50/10 bg-black/20 p-4">
             <div className="relative aspect-4/3 overflow-hidden rounded-xl">
               <Image
-                src="/images/microsoft_office_visit.jpg"
+                src="/images/microsoft_office_visit.JPG"
                 alt="Victor outside the Microsoft sign in Redmond"
                 fill
                 className="object-cover"

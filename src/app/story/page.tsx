@@ -104,7 +104,7 @@ export default function StoryPage() {
           </div>
 
           <figure className="rounded-2xl border border-emerald-50/10 bg-black/20 p-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+            <div className="relative aspect-4/3 overflow-hidden rounded-xl">
               <Image
                 src="/images/silversheet_company_outing_2019.JPG"
                 alt="Silversheet team outing"

@@ -5,7 +5,7 @@ export default function SiteFooter() {
         <p>© {new Date().getFullYear()} Victor Sarmiento</p>
         <p className="mt-2">
           <span className="text-white/40">Links:</span> {' '}
-          <a className="underline underline-offset-4 hover:text-white" href="#" target="_blank" rel="noreferrer">
+          <a className="underline underline-offset-4 hover:text-white" href="/resume/victor_sarmiento_resume_2026.pdf" target="_blank" rel="noreferrer">
             Resume
           </a> {' '}
           ·{' '}

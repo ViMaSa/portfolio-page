@@ -1,4 +1,3 @@
-// src/app/page.tsx
 'use client';
 
 import Link from 'next/link';
@@ -21,6 +20,13 @@ export default function HomePage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
+      {/* Center helper text */}
+      <div className="pointer-events-none absolute left-1/2 top-8 z-20 hidden -translate-x-1/2 md:block">
+        <p className="text-xs tracking-[0.24em] text-white/40">
+          Choose how you&apos;d like to evaluate me
+        </p>
+      </div>
+
       {/* Desktop vertical divider */}
       <div
         className={[
@@ -30,8 +36,8 @@ export default function HomePage() {
           hovered === 'facts'
             ? 'bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.18),transparent)]'
             : hovered === 'story'
-            ? 'bg-[linear-gradient(to_bottom,transparent,rgba(52,211,153,0.16),transparent)]'
-            : 'bg-white/10',
+              ? 'bg-[linear-gradient(to_bottom,transparent,rgba(52,211,153,0.16),transparent)]'
+              : 'bg-white/10',
         ].join(' ')}
       />
 
@@ -44,8 +50,8 @@ export default function HomePage() {
           hovered === 'facts'
             ? 'bg-[linear-gradient(to_right,transparent,rgba(255,255,255,0.14),transparent)]'
             : hovered === 'story'
-            ? 'bg-[linear-gradient(to_right,transparent,rgba(52,211,153,0.12),transparent)]'
-            : 'bg-white/10',
+              ? 'bg-[linear-gradient(to_right,transparent,rgba(52,211,153,0.12),transparent)]'
+              : 'bg-white/10',
         ].join(' ')}
       />
 
@@ -67,7 +73,7 @@ export default function HomePage() {
         >
           <div className="absolute inset-0 bg-[rgb(var(--facts-bg))]" />
 
-          {/* FACTS tint: explicit linear */}
+          {/* FACTS tint */}
           <div className="absolute inset-0 opacity-70 transition group-hover:opacity-100 bg-[linear-gradient(135deg,rgba(var(--facts-tint),0.95),rgba(var(--facts-bg),1))]" />
 
           <div className="relative mx-auto w-full max-w-xl px-6 py-10 md:px-8 md:py-16">
@@ -77,11 +83,12 @@ export default function HomePage() {
               Victor Sarmiento
             </h1>
 
-            <p className="mt-3 max-w-md font-facts text-sm leading-6 text-white/80">
-              Infrastructure-minded engineer who ships
+            <p className="mt-3 max-w-md font-facts text-sm leading-6 text-white/85">
+              Software Engineer focused on backend systems, data workflows, and scalable products.
             </p>
+
             <p className="mt-1 max-w-md font-facts text-sm leading-6 text-white/65">
-              Backend · Search · Data Workflows · Reliability habits
+              Backend | Search | Data Workflows | Reliability
             </p>
 
             {/* Terminal */}
@@ -97,26 +104,25 @@ export default function HomePage() {
 
               <div className="mt-3 space-y-2">
                 <Typewriter
-                  text="• Production automation + RCAs (Silversheet)"
-                  durationMs={1700}
+                  text="• Former SWE building production systems (Silversheet)"
+                  durationMs={1800}
                   delayMs={650}
                   className="typewriter-muted"
                 />
                 <Typewriter
-                  text="• Supabase RPC ranking + search intent routing (HomeSavvyDeals)"
-                  durationMs={2200}
-                  delayMs={1200}
+                  text="• Ranking + search systems in live products"
+                  durationMs={1850}
+                  delayMs={1250}
                   className="typewriter-muted"
                 />
                 <Typewriter
-                  text="• Constraints mindset (ops + high-frequency data work)"
-                  durationMs={1900}
-                  delayMs={2000}
+                  text="• Operations mindset from real-time constraint environments"
+                  durationMs={2200}
+                  delayMs={1900}
                   className="typewriter-muted"
                 />
               </div>
 
-              {/* new line + blinking block cursor (no typing) */}
               <div className="mt-1 leading-6 text-white/55">
                 <span className="terminal-cursor" aria-hidden="true">
                   █
@@ -149,7 +155,7 @@ export default function HomePage() {
         >
           <div className="absolute inset-0 bg-[rgb(var(--story-bg))]" />
 
-          {/* STORY tint: explicit linear */}
+          {/* STORY tint */}
           <div className="absolute inset-0 opacity-70 transition group-hover:opacity-100 bg-[linear-gradient(135deg,rgba(var(--story-tint),0.95),rgba(var(--story-bg),1))]" />
 
           <div className="relative mx-auto w-full max-w-xl px-6 py-10 md:px-8 md:py-16">
@@ -160,17 +166,19 @@ export default function HomePage() {
             </h2>
 
             <p className="mt-3 max-w-md font-story text-base leading-7 text-emerald-50/85">
-              How performance, data modeling, and real-world constraints shaped how I design software systems.
+              How real operations, production systems, and long-term curiosity shaped how I build software.
             </p>
 
             <div className="mt-10 rounded-2xl border border-emerald-50/10 bg-black/20 p-6">
               <p className="font-script text-2xl text-emerald-50/85">
-                “I like problems where structure matters.”
+                “I’m drawn to systems where reliability matters.”
               </p>
+
               <p className="mt-4 font-story text-sm leading-6 text-emerald-50/75">
-                Production automation at Silversheet, operational constraints at MGM, and ranking/search logic in a live product —
-                here’s the throughline.
+                From production engineering at Silversheet to operational systems at MGM and
+                live product work today. This is the path that shaped how I think.
               </p>
+
               <p className="mt-4 font-story text-sm text-emerald-50/60">
                 → Click for the narrative behind the work
               </p>

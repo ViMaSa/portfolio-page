@@ -25,7 +25,7 @@ export default function StoryPage() {
           <div className="space-y-4">
             <p className="text-emerald-50/70 font-script text-2xl">My Engineering Story</p>
             <h1 className="text-4xl font-semibold tracking-tight">
-              I’m interested in building systems that work — under real constraints.
+              I’m interested in building systems that work under real constraints.
             </h1>
             <p className="text-emerald-50/75 leading-7">
               I’m a systems-leaning full-stack engineer: backend APIs, data workflows, search, and reliability habits
@@ -84,13 +84,12 @@ export default function StoryPage() {
         <section className="mt-12 grid gap-8 md:grid-cols-2 md:items-start">
           <div className="space-y-4 text-emerald-50/80 leading-7">
             <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">
-              PRODUCTION ENGINEERING — SILVERSHEET
+              PRODUCTION ENGINEERING AT SILVERSHEET
             </h2>
 
-            <p>
-              At Silversheet (AMN Healthcare), I learned what “production” really means: changes have consequences,
-              and reliability is a feature.
-            </p>
+            <figcaption className="mt-3 text-xs text-emerald-50/60">
+              Silversheet. Where I learned what shipping means when users depend on it.
+            </figcaption>
 
             <p>
               I worked across web systems (Rails + frontend + database-backed behavior), spent a lot of time debugging
@@ -122,7 +121,7 @@ export default function StoryPage() {
         {/* MGM */}
         <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
           <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">
-            SYSTEMS THINKING — MGM WORKFORCE
+            SYSTEMS THINKING AT MGM WORKFORCE
           </h2>
 
           <p>
@@ -137,20 +136,49 @@ export default function StoryPage() {
         </section>
 
         {/* RESEARCH */}
-        <section className="mt-12 space-y-4 text-emerald-50/80 leading-7">
-          <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">
-            RESEARCH MINDSET — DATA PROCESSING & SIGNAL NOISE
-          </h2>
+        <section className="mt-12 grid gap-8 md:grid-cols-2 md:items-start">
+          <div className="space-y-4 text-emerald-50/80 leading-7">
+            <h2 className="text-sm font-semibold tracking-widest text-emerald-50/70">
+              RESEARCH MINDSET
+            </h2>
 
-          <p>
-            Earlier on, I contributed to biomechanics research where we needed to process large force-platform datasets.
-            My part of the work leaned into the engineering: numerical integration, handling noise, and turning raw signals
-            into meaningful velocity/position curves.
-          </p>
+            <p>
+              Earlier in my path, I contributed to biomechanics research involving force-platform datasets,
+              signal processing, and numerical analysis. My work focused on turning noisy raw inputs into
+              usable outputs through numerical integration, smoothing, and visualization.
+            </p>
 
-          <p className="text-sm text-emerald-50/65">
-            The takeaway: I enjoy the “messy data to useful output” problem — and the trade-offs that come with it.
-          </p>
+            <p>
+              That experience shaped how I still think today: good engineering often means working through
+              imperfect data, making careful assumptions, and building something reliable enough for other
+              people to use and trust.
+            </p>
+
+            <p>
+              Presenting that work at the UNLV Summer Undergraduate Research Symposium gave me an early
+              appreciation for something I still value: being able to not only build or analyze something,
+              but also explain it clearly.
+            </p>
+
+            <p className="mt-2 text-sm text-emerald-50/60">
+              Data, noise, and turning raw inputs into useful outputs.
+            </p>
+          </div>
+
+          <figure className="rounded-2xl border border-emerald-50/10 bg-black/20 p-4">
+            <div className="relative aspect-4/5 overflow-hidden rounded-xl">
+              <Image
+                src="/images/UNLV_Research_Symposium.jpg"
+                alt="Victor Sarmiento presenting with his group at the UNLV Summer Undergraduate Research Symposium"
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 768px) 520px, 100vw"
+              />
+            </div>
+            <figcaption className="mt-3 text-xs text-emerald-50/60">
+              Presenting research at the UNLV Summer Undergraduate Research Symposium.
+            </figcaption>
+          </figure>
         </section>
 
         {/* HOMESAVVY + HOST */}
@@ -161,7 +189,9 @@ export default function StoryPage() {
 
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-2xl border border-emerald-50/10 bg-black/20 p-6">
-              <p className="text-emerald-50/90 font-semibold">HomeSavvyDeals — contractor work</p>
+              <p className="text-emerald-50/90 font-semibold">
+                HomeSavvyDeals | Contractor Work
+              </p>
               <p className="mt-3 text-sm text-emerald-50/75 leading-6">
                 I’ve been contributing to a live affiliate product experience: mixing affiliate and non-affiliate items,
                 improving search flow, and using Supabase RPC/views to support retrieval and ranking behavior.
@@ -174,7 +204,9 @@ export default function StoryPage() {
             </div>
 
             <div className="rounded-2xl border border-emerald-50/10 bg-black/20 p-6">
-              <p className="text-emerald-50/90 font-semibold">H.O.S.T. — workflow-first system design</p>
+              <p className="text-emerald-50/90 font-semibold">
+                H.O.S.T. | Workflow-First System Design
+              </p>
               <p className="mt-3 text-sm text-emerald-50/75 leading-6">
                 H.O.S.T. started from an operations mindset: define roles, states, and invariants first — then build
                 the software to enforce it.
@@ -223,7 +255,7 @@ export default function StoryPage() {
               />
             </div>
             <figcaption className="mt-3 text-xs text-emerald-50/60">
-              Visiting a big-engineering campus — a reminder of the kind of environment I’m working toward.
+              Visiting a major engineering campus. A reminder of the kind of environment I’m working toward.
             </figcaption>
           </figure>
         </section>

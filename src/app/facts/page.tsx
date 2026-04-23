@@ -10,51 +10,172 @@ export default function FactsPage() {
       <SiteHeader active="facts" />
 
       <div className="mx-auto w-full max-w-5xl px-6 py-12">
-        <header className="space-y-3">
+
+        {/* HERO */}
+        <header className="space-y-4">
           <h1 className="text-3xl font-semibold tracking-tight">Facts Mode</h1>
-          <p className="text-white/80">
-            <span className="font-semibold">Victor Sarmiento</span> — infrastructure-minded engineer who ships
-          </p>
-          <p className="text-white/60">
-            Backend systems · search/workflows · ranking logic · reliability habits
-          </p>
+
+          <div className="space-y-2">
+            <p className="text-2xl font-semibold text-white">
+              Victor Sarmiento
+            </p>
+
+            <p className="text-white/85 text-base leading-7 max-w-3xl">
+              Software Engineer focused on backend systems, data workflows,
+              and scalable products.
+            </p>
+
+            <p className="text-sm text-white/60">
+              Former Software Engineer at Silversheet | Contractor shipping live product
+              features | Computer Science @ UNLV
+            </p>
+          </div>
         </header>
 
-        <section className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-sm font-semibold tracking-widest text-white/70">CORE SKILLS</h2>
-            <div className="mt-4 space-y-2 text-sm text-white/80">
-              <p>
-                <span className="text-white/55">Languages:</span> TypeScript/JavaScript · Python · SQL
-              </p>
-              <p>
-                <span className="text-white/55">Web:</span> Next.js · React · Tailwind · Node.js
-              </p>
-              <p>
-                <span className="text-white/55">Backend:</span> REST APIs · Auth/JWT · Supabase RPC · Data modeling
-              </p>
-              <p>
-                <span className="text-white/55">DB:</span> PostgreSQL · Views · Query abstractions
-              </p>
-              <p>
-                <span className="text-white/55">Systems:</span> Ranking logic · Search intent routing · Debugging/RCA · CI/CD (GitHub → Vercel)
-              </p>
-            </div>
-          </div>
+        {/* EXPERIENCE */}
+        <section className="mt-12">
+          <h2 className="text-sm font-semibold tracking-widest text-white/70">
+            EXPERIENCE
+          </h2>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-sm font-semibold tracking-widest text-white/70">FOCUS</h2>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-              <li>Backend-leaning full-stack systems</li>
-              <li>Data workflows and logic close to the DB layer</li>
-              <li>Search and ranking pipelines</li>
-              <li>Designing for constraints, maintainability, and reliability</li>
-            </ul>
+          <div className="mt-4 grid gap-6 md:grid-cols-2">
+
+            {/* HOME SAVVY DEALS */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-sm font-semibold tracking-widest text-white/70">
+                HOME SAVVY DEALS (CONTRACT)
+              </h3>
+
+              <p className="mt-3 text-sm text-white/60">
+                Next.js | Tailwind | Supabase | PostgreSQL | Vercel
+              </p>
+
+              <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-white/80">
+                <li>
+                  Implemented ranking logic balancing monetization goals,
+                  relevance, and recency
+                </li>
+                <li>
+                  Moved selection logic into database RPC functions and views
+                  for cleaner architecture
+                </li>
+                <li>
+                  Improved search flow by classifying user intent
+                  (direct URL vs discovery lookup)
+                </li>
+                <li>
+                  Built responsive UI components and shipped through PR-based
+                  preview deployments
+                </li>
+                <li>
+                  Contributed to a live product experience with real business
+                  constraints
+                </li>
+              </ul>
+            </div>
+
+            {/* SILVERSHEET */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-sm font-semibold tracking-widest text-white/70">
+                SILVERSHEET
+              </h3>
+
+              <p className="mt-3 text-sm text-white/60">
+                Software Engineer (2019–2021) | Rails | React | PostgreSQL | AWS
+              </p>
+
+              <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-white/80">
+                <li>
+                  Built automation pipeline converting PDFs into structured
+                  mappings stored in AWS S3
+                </li>
+                <li>
+                  Reduced internal processing time from days to hours
+                </li>
+                <li>
+                  Shipped behind feature flags and resolved launch blockers
+                  across browsers/devices
+                </li>
+                <li>
+                  Authored 20+ root cause analyses and monitored production
+                  issues through Airbrake
+                </li>
+                <li>
+                  Worked in Agile engineering environment with sprint planning
+                  and releases
+                </li>
+              </ul>
+            </div>
+
+            {/* MGM */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-sm font-semibold tracking-widest text-white/70">
+                MGM RESORTS INTERNATIONAL
+              </h3>
+
+              <p className="mt-3 text-sm text-white/60">
+                Workforce Management Specialist
+              </p>
+
+              <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-white/80">
+                <li>
+                  Managed real-time workforce operations across large
+                  multi-department environments
+                </li>
+                <li>
+                  Balanced coverage, demand, compliance, and fairness
+                  constraints daily
+                </li>
+                <li>
+                  Developed strong systems-thinking around dependencies,
+                  escalations, and reliability
+                </li>
+                <li>
+                  Operated in fast-moving environments where mistakes have real
+                  downstream impact
+                </li>
+              </ul>
+            </div>
+
+            {/* RESEARCH */}
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <h3 className="text-sm font-semibold tracking-widest text-white/70">
+                HIGH-FREQUENCY DATA WORK
+              </h3>
+
+              <p className="mt-3 text-sm text-white/60">
+                Numerical Modeling | Time-Series Data | Performance Analysis
+              </p>
+
+              <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-white/80">
+                <li>
+                  Processed 1000 Hz sensor datasets using numerical integration
+                  techniques
+                </li>
+                <li>
+                  Converted noisy acceleration signals into usable velocity and
+                  position outputs
+                </li>
+                <li>
+                  Applied smoothing / noise reduction methods for stable
+                  analysis
+                </li>
+                <li>
+                  Assisted with data visualization and computational evaluation
+                  workflows
+                </li>
+              </ul>
+            </div>
+
           </div>
         </section>
 
+        {/* PROJECTS */}
         <section className="mt-12">
-          <h2 className="text-sm font-semibold tracking-widest text-white/70">PROJECTS</h2>
+          <h2 className="text-sm font-semibold tracking-widest text-white/70">
+            PROJECTS
+          </h2>
+
           <div className="mt-4 grid gap-6">
             {projects.map((p) => (
               <ProjectCard key={p.slug} project={p} />
@@ -62,57 +183,74 @@ export default function FactsPage() {
           </div>
         </section>
 
+        {/* CORE SKILLS */}
         <section className="mt-12 grid gap-6 md:grid-cols-2">
+
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-sm font-semibold tracking-widest text-white/70">EXPERIENCE — HOME SAVVY DEALS (CONTRACT)</h2>
-            <p className="mt-3 text-sm text-white/75">
-              Next.js · Tailwind · Supabase (RPC + Views) · Vercel
-            </p>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-              <li>Implemented weighted ranking logic balancing monetization constraints with recency scoring</li>
-              <li>Encapsulated selection/ranking logic via Supabase RPC + DB views</li>
-              <li>Improved search flow by classifying intent (direct URL vs similarity lookup)</li>
-              <li>In progress: background search execution to reduce perceived latency</li>
-              <li>Shipped via PR-based Vercel preview deployments; mobile-responsive UI components</li>
+            <h2 className="text-sm font-semibold tracking-widest text-white/70">
+              CORE SKILLS
+            </h2>
+
+            <div className="mt-4 space-y-2 text-sm text-white/80">
+              <p>
+                <span className="text-white/55">Languages:</span>{' '}
+                TypeScript / JavaScript · Python · SQL · Ruby
+              </p>
+
+              <p>
+                <span className="text-white/55">Frontend:</span>{' '}
+                Next.js · React · Tailwind CSS
+              </p>
+
+              <p>
+                <span className="text-white/55">Backend:</span>{' '}
+                Node.js · REST APIs · Auth/JWT · Supabase · Server-side logic
+              </p>
+
+              <p>
+                <span className="text-white/55">Database:</span>{' '}
+                PostgreSQL · Schema Design · Views · RPC Functions · Query Optimization
+              </p>
+
+              <p>
+                <span className="text-white/55">Engineering:</span>{' '}
+                Debugging · RCA Analysis · CI/CD · Feature Delivery · Reliability Thinking
+              </p>
+            </div>
+          </div>
+
+          {/* FOCUS */}
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <h2 className="text-sm font-semibold tracking-widest text-white/70">
+              FOCUS
+            </h2>
+
+            <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-white/80">
+              <li>Backend-leaning full-stack systems</li>
+              <li>Data workflows and business logic close to the DB layer</li>
+              <li>Search, retrieval, and ranking pipelines</li>
+              <li>Designing for constraints, maintainability, and scale</li>
+              <li>Shipping practical software that solves real problems</li>
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-sm font-semibold tracking-widest text-white/70">EXPERIENCE — SILVERSHEET</h2>
-            <p className="mt-3 text-sm text-white/75">
-              Software Engineer (2019–2021) — Rails · React · PostgreSQL · AWS
-            </p>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-              <li>Built automation pipeline (PDF → structured mappings → S3) reducing processing from days to hours</li>
-              <li>Standardized form taxonomy to reduce mapping time and improve maintainability</li>
-              <li>Shipped behind feature flags; debugged launch blockers and cross-browser issues</li>
-              <li>Authored 20+ RCAs; monitored production via Airbrake</li>
-            </ul>
-          </div>
         </section>
 
-        <section className="mt-12 grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-sm font-semibold tracking-widest text-white/70">EXPERIENCE — MGM</h2>
-            <p className="mt-3 text-sm text-white/75">Workforce Management — 24/7 operational systems</p>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-              <li>Operate within real-time constraint systems (coverage, compliance, fairness)</li>
-              <li>Escalations + reliability mindset: what breaks, why it breaks, how to prevent repeats</li>
-              <li>Translate business rules into consistent, auditable workflow behavior</li>
-            </ul>
-          </div>
+        {/* OPEN TO */}
+        <section className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6">
+          <h2 className="text-sm font-semibold tracking-widest text-white/70">
+            OPEN TO
+          </h2>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <h2 className="text-sm font-semibold tracking-widest text-white/70">RESEARCH — HIGH-FREQUENCY DATA WORK</h2>
-            <p className="mt-3 text-sm text-white/75">Numerical modeling · noise handling · performance trade-offs</p>
-            <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-white/80">
-              <li>Implemented numerical integration to derive velocity/position from acceleration signals</li>
-              <li>Handled noise/smoothing to stabilize computed series</li>
-              <li>Worked with high-rate (1000 Hz) time-series data and multi-trial aggregation</li>
-              <li>Assisted with visualization workflow + complexity evaluation</li>
-            </ul>
-          </div>
+          <ul className="mt-4 list-disc pl-5 space-y-2 text-sm text-white/80">
+            <li>Software Engineering Internships</li>
+            <li>Early Career SWE Roles</li>
+            <li>Backend / Full Stack Positions</li>
+            <li>Platform / Data Systems Roles</li>
+            <li>Las Vegas · Seattle · Remote</li>
+          </ul>
         </section>
+
       </div>
 
       <SiteFooter />
